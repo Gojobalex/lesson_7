@@ -22,6 +22,6 @@ public class DownloadHomeTaskDocx {
         Selenide.open("https://github.com/Gojobalex/lesson_7/blob/master/TextFile.docx");
         File downloadFile = $(byText("View raw")).download();
         String fileContent = FileUtils.readFileToString(downloadFile, StandardCharsets.UTF_8);
-        assertThat(fileContent, containsString("Текстовый файл2323232323"));
+        assertThat(fileContent, containsString("Текстовый файл324234234234234"));
     }
 }
