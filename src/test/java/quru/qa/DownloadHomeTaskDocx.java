@@ -19,8 +19,8 @@ public class DownloadHomeTaskDocx {
     @Test
     void docxFileDownload() throws IOException {
         Configuration.downloadsFolder = "downloads";
-        Selenide.open("https://github.com/Gojobalex/lesson_7/blob/master/TextFile.docx");
-        File downloadFile = $(byText("View raw")).download();
+        Selenide.open("https://github.com/Gojobalex/lesson_7/blob/master/TxtFile.txt");
+        File downloadFile = $("#raw-url").download();
         String fileContent = FileUtils.readFileToString(downloadFile, StandardCharsets.UTF_8);
         assertThat(fileContent, containsString("Текстовый файл"));
     }
