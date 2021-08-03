@@ -17,9 +17,9 @@ public class FirstFileDownloadTest {
 
     @Test
     void fileDownload() throws Exception {
-        Selenide.open("https://github.com/junit-team/junit5/blob/main/README.md");
+        Selenide.open("https://github.com/Gojobalex/lesson_7/blob/master/Random_file.docx");
         File downloadedFile = $("#raw-url").download();
         String s = FileUtils.readFileToString(downloadedFile, "UTF-8");
-        Assertions.assertTrue(s.contains("This"));
+        Assertions.assertTrue(s.contains("ЭКОНОМИЧЕСКИЙ ФАКУЛЬТЕТ"));
     }
 }

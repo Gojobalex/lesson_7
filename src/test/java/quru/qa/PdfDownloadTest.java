@@ -16,9 +16,9 @@ public class PdfDownloadTest {
 
     @Test
     void junitTest() throws IOException {
-        Selenide.open("https://junit.org/junit5/docs/current/user-guide/");
-        File pdfDownload = $(byText("PDF download")).download();
+        Selenide.open("https://github.com/Gojobalex/lesson_7/blob/master/Book_list.xlsx");
+        File pdfDownload = $("#raw-url").download();
         PDF parsePDF = new PDF(pdfDownload);
-        assertThat(new String(parsePDF.text)).contains("Table of Contents");
+        assertThat(new String(parsePDF.text)).contains("Договор купли-продажи транспортного средства");
     }
 }
