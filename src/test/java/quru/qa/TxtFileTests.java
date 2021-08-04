@@ -25,4 +25,12 @@ public class TxtFileTests {
         String actualData = readTextFromPath(txtFilePath);
         assertThat(actualData, containsString(expectedData));
     }
+    @Test
+    void txtTest3() throws IOException {
+        String txtFilePath = "./src/test/resources/files/1.txt";
+        String expectedData = "project";
+
+        String actualData = readTextFromPath(txtFilePath);
+        assertThat(actualData, containsString(expectedData));
+    }
 }
