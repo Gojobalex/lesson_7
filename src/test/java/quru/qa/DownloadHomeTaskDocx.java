@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
+import utils.Files;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class DownloadHomeTaskDocx {
         Configuration.downloadsFolder = "downloads";
         Selenide.open("https://github.com/Gojobalex/lesson_7/blob/master/TxtFile.txt");
         File downloadFile = $("#raw-url").download();
-        String fileContent = FileUtils.readFileToString(downloadFile, StandardCharsets.UTF_8);
+        String fileContent = Files.readTextFromFile(downloadFile);
         assertThat(fileContent, containsString("Текстовый файл"));
     }
 }
