@@ -14,7 +14,7 @@ import static utils.Zip.unzip;
 
 public class DownloadHomeTaskZip {
     @Test
-    void zipTest() throws IOException, ZipException {
+    void zipWithPassowrdTest() throws IOException, ZipException {
         String zipFilePath = "./src/test/resources/files/1.zip";
         String unzipFolderPath = "./src/test/resources/files/unzip";
         String zipPassword = "";
@@ -22,6 +22,18 @@ public class DownloadHomeTaskZip {
         String expectedData = "project";
 
         unzip(zipFilePath, unzipFolderPath, zipPassword);
+        String actualData = readTextFromPath(unzipTxtFilePath);
+        assertThat(actualData, containsString(expectedData));
+    }
+
+    @Test
+    void zipWithoutPasswordTest() throws IOException, ZipException {
+        String zipFilePath = "./src/test/resources/files/1.zip";
+        String unzipFolderPath = "./src/test/resources/files/unzip";
+        String unzipTxtFilePath = "./src/test/resources/files/unzip/1.txt";
+        String expectedData = "project";
+
+        unzip(zipFilePath, unzipFolderPath);
         String actualData = readTextFromPath(unzipTxtFilePath);
         assertThat(actualData, containsString(expectedData));
     }
