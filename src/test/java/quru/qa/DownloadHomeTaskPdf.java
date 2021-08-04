@@ -17,6 +17,6 @@ public class DownloadHomeTaskPdf {
         String pdfFilePath = "./src/test/resources/files/dkp.pdf";
         String expectedData = "Договор";
         PDF pdf = getPdf(pdfFilePath);
-        assertThat(pdf, containsText(expectedData));
+        assertThat(pdf, PDF.containsText(expectedData));
     }
 }
